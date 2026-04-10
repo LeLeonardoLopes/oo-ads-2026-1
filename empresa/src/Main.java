@@ -7,7 +7,8 @@ public class Main {
         //teste01();
         //teste02();
         //teste03();
-        prova1();
+        //prova1();
+        teste04();
     }
 
     public static void teste01() {
@@ -152,6 +153,7 @@ public class Main {
         ce3.exibirSaldo();
         ce3.exibirSaldoReal();
     }
+
     public static void prova1() {
         System.out.println("=== PROVA 1 ===");
 
@@ -164,8 +166,8 @@ public class Main {
         aluno1.telefone = "(16) 97111-5522";
         aluno1.nota1 = 8.5;
         aluno1.nota2 = 9.0;
-        System.out.println(aluno1.exibirDados());
 
+        System.out.println(aluno1.exibirDados());
         System.out.println("-".repeat(80));
 
 
@@ -177,8 +179,8 @@ public class Main {
         aluno2.telefone = "(16) 91111-5522";
         aluno2.nota1 = 5.0;
         aluno2.nota2 = 6.0;
-        System.out.println(aluno2.exibirDados());
 
+        System.out.println(aluno2.exibirDados());
         System.out.println("-".repeat(80));
 
         Estudante aluno3 = new Estudante("Direito");
@@ -189,6 +191,7 @@ public class Main {
         aluno3.telefone = "(16) 91111-2222";
         aluno3.nota1 = 7.5;
         aluno3.nota2 = 4.0;
+
         System.out.println(aluno3.exibirDados());
         System.out.println("-".repeat(80));
 
@@ -202,9 +205,29 @@ public class Main {
         aluno4.nota2 = 9.5;
 
         System.out.println(aluno4.exibirDados());
-
         System.out.println("=".repeat(80));
     }
-}
 
 //PROVA 1
+
+    public static void teste04() {
+        ContaBancaria c1 = new ContaBancaria("Zeferino Zacarias", 500.00);
+        c1.exibirSaldo();
+
+        c1.sacar(500.00);
+        c1.exibirSaldo();
+
+        //Atributo saldo foi privatizado
+        //Mudanças no saldo agora só podem ser feitas por meio dos
+        // métodos depositar() e sacar()
+        //c1.saldo = -100.00;
+        //c1.exibirSaldo();
+
+        c1.depositar (200.00);
+        c1.exibirSaldo();
+
+        ContaBancaria c2 =  new ContaBancaria("Yuri Yamashita", -850.00);
+        c2.exibirSaldo();
+
+    }
+}
