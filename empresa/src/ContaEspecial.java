@@ -1,22 +1,27 @@
 public class ContaEspecial extends ContaBancaria {
-    // Atributo exclusivo
-    public Double limite;
 
-    // CONSTRUTOR PERSONALIZADO
-    public ContaEspecial(String titular, Double saldoInicial, Double limite) {
-        // super chama o construtor da classe "mãe" (ContaBancaria)
-        super(titular, saldoInicial);
+    // Atributo
+    Double limite;
+
+    // Construtor personalizado
+    public ContaEspecial(
+            Integer numConta,
+            String titular,
+            Double saldoInicial,
+            Double limite
+    ) {
+        super(numConta, titular, saldoInicial);
         this.limite = limite;
     }
 
     @Override
     public void exibirSaldo() {
-        Double saldoComLimite = this.saldo + this.limite;
-        System.out.println("Titular (Especial): " + this.titular);
-        System.out.println("Saldo + Limite: R$ " + saldoComLimite);
+        String msg = "Saldo da conta ESPECIAL nº %d de %s é R$ %.2f".formatted(this.getNumConta(), this.titular, this.saldo + this.limite);
+        System.out.println(msg);
     }
 
     public void exibirSaldoReal() {
-        System.out.println("Saldo Real (sem limite) de " + this.titular + ": R$ " + this.saldo);
+        String msg = "Saldo (real) da conta ESPECIAL nº %d de %s é R$ %.2f".formatted(this.getNumConta(), this.titular, this.saldo);
+        System.out.println(msg);
     }
 }
