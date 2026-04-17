@@ -203,17 +203,17 @@ public class Main {
                 "Direito"
         );
 
-        e1.nota1Bim = 8.5;
-        e1.nota2Bim = 6.0;
+        e1.nota1 = 8.5;
+        e1.nota2 = 6.0;
 
-        e2.nota1Bim = 5.6;
-        e2.nota2Bim = 4.3;
+        e2.nota1 = 5.6;
+        e2.nota2 = 4.3;
 
-        e3.nota1Bim = 10.0;
-        e3.nota2Bim = 8.2;
+        e3.nota1 = 10.0;
+        e3.nota2 = 8.2;
 
-        e4.nota1Bim = 7.0;
-        e4.nota2Bim = 4.6;
+        e4.nota1 = 7.0;
+        e4.nota2 = 4.6;
 
         System.out.println(e1.exibirDados());
         System.out.println("-".repeat(80));
@@ -248,6 +248,7 @@ public class Main {
         c2.exibirSaldo();
 
         c2.setNumConta(40);
-        System.out.println("Conta de %s agora tem o número %d.".formatted(c2.titular, c2.getNumConta()));
+        System.out.println("Conta de %s agora tem o número %d.".formatted(c2.getTitular(),
+                c2.getNumConta()));
     }
 }
