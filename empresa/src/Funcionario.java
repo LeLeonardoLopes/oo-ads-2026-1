@@ -2,23 +2,15 @@ import java.util.Date;
 
 public class Funcionario extends Pessoa {
 
-    /*
-        taxaComissao é um ATRIBUTO DE CLASSE.
-        O valor de um atributo de classe é COMPARTILHADO por
-        todos os objetos criados a partir da classe que o definiu.
-        A declaração de atributos de classe é caracterizada pelo
-        uso da palavra-chave "static".
-    */
     public static Double taxaComissao = 10.0;
 
-    // Atributos
-    public String matricula;
-    public String cargo;
-    public Double salarioBase;
-    public String departamento;
-    public Date dataAdmissao;
+    // 1. Atributos alterados de public para private
+    private String matricula;
+    private String cargo;
+    private Double salarioBase;
+    private String departamento;
+    private Date dataAdmissao;
 
-    // MÉTODO CONSTRUTOR PERSONALIZADO
     public Funcionario(
             String nome,
             Integer idade,
@@ -30,10 +22,8 @@ public class Funcionario extends Pessoa {
             Double salarioBase,
             String departamento
     ) {
-        // Chamando o construtor da classe pai
         super(nome, idade, cpf, email, telefone);
 
-        // Armazenando o valor dos atributos particulares da classe Funcionario
         this.matricula = matricula;
         this.cargo = cargo;
         this.salarioBase = salarioBase;
@@ -41,7 +31,7 @@ public class Funcionario extends Pessoa {
         this.dataAdmissao = new Date();
     }
 
-    // Métodos
+    // Métodos Originais
     public Double calcularSalario() {
         return this.salarioBase * (1 + (taxaComissao / 100));
     }
@@ -55,7 +45,7 @@ public class Funcionario extends Pessoa {
     }
 
     public void registrarPonto() {
-        System.out.println("Ponto registrado para " + this.nome +
+        System.out.println("Ponto registrado para " + this.getNome() + // Atualizado para usar getNome()
                 "\nMatrícula: " + this.matricula +
                 "\nData/hora:" + new Date()
         );
@@ -63,21 +53,6 @@ public class Funcionario extends Pessoa {
 
     @Override
     public String exibirDados() {
-
-        /*
-            A palavra-chave "super" é uma referência à classe-base
-            (Pessoa) da classe atual (Funcionário).
-
-            Em vez de reescrever o método exibirDados() do zero,
-            chamamos a versão do método implementada na classe
-            Pessoa, usando a referência "super" (super.exibirDados();)
-            e, em seguida, apenas completamos com as informações que
-            são particulares de Funcionario.
-
-            Quando uma classe redefine (reescreve) um método de sua
-            classe-base, como nesse caso, a versão reescrita na classe
-            derivada deve ser marcada com @Override.
-        */
         String dadosPessoa = super.exibirDados();
         return dadosPessoa +
                 "\nMatricula: " + this.matricula +
@@ -85,5 +60,46 @@ public class Funcionario extends Pessoa {
                 "\nSalário base: R$ " + this.salarioBase +
                 "\nDepartamento: " + this.departamento +
                 "\nData de admissão: " + this.dataAdmissao;
+    }
+
+    // 2. Getters e Setters implementados
+    public String getMatricula() {
+        return matricula;
+    }
+
+    public void setMatricula(String matricula) {
+        this.matricula = matricula;
+    }
+
+    public String getCargo() {
+        return cargo;
+    }
+
+    public void setCargo(String cargo) {
+        this.cargo = cargo;
+    }
+
+    public Double getSalarioBase() {
+        return salarioBase;
+    }
+
+    public void setSalarioBase(Double salarioBase) {
+        this.salarioBase = salarioBase;
+    }
+
+    public String getDepartamento() {
+        return departamento;
+    }
+
+    public void setDepartamento(String departamento) {
+        this.departamento = departamento;
+    }
+
+    public Date getDataAdmissao() {
+        return dataAdmissao;
+    }
+
+    public void setDataAdmissao(Date dataAdmissao) {
+        this.dataAdmissao = dataAdmissao;
     }
 }
