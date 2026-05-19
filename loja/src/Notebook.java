@@ -125,6 +125,7 @@ public class Notebook extends Eletronico {
                 "Processador: " + this.getProcessador() + "\n" +
                 "Memória: " + this.getMemoriaGb() + " GB" + "\n" +
                 "Armazenamento: " + this.getArmazenamentoGb() + " GB" + "\n" +
+                "Bateria: " + this.getBateriaMAh() + " mAh" + "\n" +
                 "Tela: " + this.getTelaPol() + " pol." + "\n" +
                 "Placa de Vídeo: " + this.getTipoPlacaVideo() + "\n" +
                 "É gamer? " + (this.isGamer() ? "Sim" : "Não") + "\n" +
