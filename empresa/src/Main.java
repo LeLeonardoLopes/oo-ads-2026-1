@@ -238,11 +238,17 @@ public class Main {
                 "(16) 4444-8888"
         );
 
+        CestaTarifas basica = new CestaTarifas("Básica", 10.00);
+
         ContaBancaria c1 = new ContaBancaria(987, pessoa1, 500.00);
+        c1.setCestaTarifas(basica);
+
         c1.exibirSaldo();
 
         c1.sacar(350.00);
         c1.exibirSaldo();
+
+        c1.exibirExtrato();
 
         // Atributo "saldo" foi privatizado
         // Mudanças no saldo agora só podem ser feitas por meio dos
@@ -255,7 +261,7 @@ public class Main {
 
         Pessoa pessoa2 = new Pessoa(
                 "Yuri Yamashita",
-                15,
+                21,
                 "987.654.321-09",
                 "yuri.yamashita@email.com.br",
                 "(16) 99999-0000"
@@ -266,5 +272,28 @@ public class Main {
 
         c2.setNumConta(40);
         System.out.println("Conta de %s agora tem o número %d.".formatted(c2.getTitular(), c2.getNumConta()));
+
+        System.out.println("-".repeat(80));
+
+        Funcionario func1 = new Funcionario(
+                "Jeruza Junqueira",
+                25,
+                "111.222.333-44",
+                "jeruza@empresa.com.br",
+                "(16) 91111-2222",
+                "1234",
+                "Secretária",
+                3200.00,
+                "Diretoria Financeira"
+        );
+
+        // Criação do clube
+        Clube clubeDeCampo = new Clube("Clube de Campo");
+
+        clubeDeCampo.addSocio(pessoa1);
+        clubeDeCampo.addSocio(func1);
+
+        clubeDeCampo.listSocios();
+
     }
 }
